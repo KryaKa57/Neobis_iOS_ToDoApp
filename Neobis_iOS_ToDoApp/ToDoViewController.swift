@@ -8,14 +8,35 @@
 import UIKit
 
 class ToDoViewController: UIViewController {
-
-    var taskName: String = ""
+    
+    @IBOutlet weak var initalTextLabel: UILabel!
+    @IBOutlet weak var addTaskButton: UIButton!
+    @IBOutlet weak var taskTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print(taskName)
+        self.taskTableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        self.taskTableView.dataSource = self
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "ToDo") as? AddTaskViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
-
+    func setInitialTextLabel(_ text: String) {
+        initalTextLabel.text = text
+    }
 }
 
+extension ToDoViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        0
+    }
+}

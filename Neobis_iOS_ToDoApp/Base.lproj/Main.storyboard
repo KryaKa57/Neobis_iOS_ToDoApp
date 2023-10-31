@@ -8,20 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--To Do View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Neobis_iOS_ToDoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ToDoViewController" customModule="Neobis_iOS_ToDoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Создайте новую задачу нажав на кнопку +" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mg-jR-XJv">
-                                <rect key="frame" x="65.333333333333343" y="91" width="262.33333333333326" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSa-Oj-IDq">
                                 <rect key="frame" x="314" y="752" width="47" height="34"/>
                                 <color key="tintColor" red="0.34137370560000002" green="0.74569195509999997" blue="0.2734552194" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -30,6 +24,7 @@
                                     <color key="baseBackgroundColor" red="0.34137370560000002" green="0.74569195509999997" blue="0.2734552194" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="addTaskButton:" destination="cCK-4S-4D3" eventType="touchUpInside" id="w4K-Fa-62P"/>
                                     <segue destination="x3b-R6-UYz" kind="show" id="ORz-GL-HEr"/>
                                 </connections>
                             </button>
@@ -38,6 +33,19 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="pencil" catalog="system"/>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ksg-OW-NsZ">
+                                <rect key="frame" x="32" y="91" width="329" height="7"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="INe-ML-no9"/>
+                                </constraints>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Создайте новую задачу нажав на кнопку +" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mg-jR-XJv">
+                                <rect key="frame" x="65.333333333333343" y="123" width="262.33333333333326" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -46,16 +54,25 @@
                             <constraint firstItem="uSa-Oj-IDq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4gY-uY-GWR"/>
                             <constraint firstItem="uSa-Oj-IDq" firstAttribute="top" secondItem="U4I-sp-j3E" secondAttribute="bottom" constant="32" id="6lM-VI-GVY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uSa-Oj-IDq" secondAttribute="bottom" constant="32" id="93e-CN-emo"/>
-                            <constraint firstItem="7mg-jR-XJv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="DMz-nK-ABW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ksg-OW-NsZ" secondAttribute="trailing" constant="32" id="9wG-c6-eDx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U4I-sp-j3E" secondAttribute="trailing" constant="32" id="EeR-Rq-QWy"/>
+                            <constraint firstItem="Ksg-OW-NsZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="KbL-e1-M6q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7mg-jR-XJv" secondAttribute="trailing" constant="32" id="TBb-CY-gwa"/>
                             <constraint firstItem="U4I-sp-j3E" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WfK-1V-YOc"/>
+                            <constraint firstItem="Ksg-OW-NsZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="bal-jD-wzW"/>
+                            <constraint firstItem="7mg-jR-XJv" firstAttribute="top" secondItem="Ksg-OW-NsZ" secondAttribute="bottom" constant="32" id="fBe-lB-H7S"/>
                             <constraint firstItem="7mg-jR-XJv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n74-hJ-ttN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uSa-Oj-IDq" secondAttribute="trailing" constant="32" id="riB-ya-VhY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addTaskButton" destination="uSa-Oj-IDq" id="ZzP-sd-it1"/>
+                        <outlet property="initalTextLabel" destination="7mg-jR-XJv" id="6K9-hP-4SJ"/>
+                        <outlet property="taskTableView" destination="Ksg-OW-NsZ" id="oZZ-o9-HHc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="cCK-4S-4D3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-45.038167938931295" y="-35.211267605633807"/>
         </scene>
@@ -112,9 +129,15 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="WHd-bB-lEC">
                         <barButtonItem key="leftBarButtonItem" title="Отменить" id="bOg-iI-snW">
                             <color key="tintColor" red="0.73811400989999998" green="0.2588235438" blue="0.2352941036" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="cancelTask:" destination="3t5-qC-5ic" id="UXP-Xe-e0V"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Сохранить" id="411-Wj-XcQ">
                             <color key="tintColor" systemColor="systemBlueColor"/>
+                            <connections>
+                                <action selector="saveTask:" destination="3t5-qC-5ic" id="zar-5Y-fgc"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -130,7 +153,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uh2-fr-fpX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="x3b-R6-UYz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ToDo" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x3b-R6-UYz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="oOn-UF-8fa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6r4-W8-lnN">

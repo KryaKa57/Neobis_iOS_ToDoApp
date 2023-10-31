@@ -14,6 +14,7 @@
 		643767622AEA87C30072CC3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 643767612AEA87C30072CC3C /* Assets.xcassets */; };
 		643767652AEA87C30072CC3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 643767632AEA87C30072CC3C /* LaunchScreen.storyboard */; };
 		6437676D2AEDA0220072CC3C /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6437676C2AEDA0220072CC3C /* AddTaskViewController.swift */; };
+		64E5F0EF2AF1A3CA003B34E0 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5F0EE2AF1A3CA003B34E0 /* Tasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		643767642AEA87C30072CC3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		643767662AEA87C30072CC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6437676C2AEDA0220072CC3C /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		64E5F0EE2AF1A3CA003B34E0 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				643767582AEA87C20072CC3C /* AppDelegate.swift */,
 				6437675A2AEA87C20072CC3C /* SceneDelegate.swift */,
 				6437675C2AEA87C20072CC3C /* ToDoViewController.swift */,
+				64E5F0EE2AF1A3CA003B34E0 /* Tasks.swift */,
 				6437676C2AEDA0220072CC3C /* AddTaskViewController.swift */,
 				6437675E2AEA87C20072CC3C /* Main.storyboard */,
 				643767612AEA87C30072CC3C /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			files = (
 				6437675D2AEA87C20072CC3C /* ToDoViewController.swift in Sources */,
 				6437676D2AEDA0220072CC3C /* AddTaskViewController.swift in Sources */,
+				64E5F0EF2AF1A3CA003B34E0 /* Tasks.swift in Sources */,
 				643767592AEA87C20072CC3C /* AppDelegate.swift in Sources */,
 				6437675B2AEA87C20072CC3C /* SceneDelegate.swift in Sources */,
 			);
