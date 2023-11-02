@@ -16,6 +16,9 @@ class AddTaskViewController: UIViewController {
     func getTaskName() -> String {
         return taskNameTextField.text ?? "Без названия"
     }
+    func getTaskDescription() -> String {
+        return taskDescriptionTextField.text ?? "Без названия"
+    }
     
     @IBAction func checkAndDisplayHint(_ sender: UITextField) {
         if (sender.text!.isEmpty) { taskNameLabel.isHidden = true }
@@ -25,7 +28,7 @@ class AddTaskViewController: UIViewController {
     @IBAction func saveTask(_ sender: UIBarButtonItem) {
         if let vc = presentingViewController as? ToDoViewController {
             dismiss(animated: true, completion: {
-                vc.setInitialTextLabel(self.getTaskName())
+                vc.addNewTask(taskName: self.getTaskName(), taskDescription: self.getTaskDescription())
             })
         }
     }
