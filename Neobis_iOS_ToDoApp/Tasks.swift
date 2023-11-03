@@ -11,6 +11,6 @@ import Foundation
 struct Tasks {
     var name: String
     var descrtiption: String
-    
+    var isDone: Bool
     
 }
