@@ -9,6 +9,9 @@ class AddTaskViewController: UIViewController {
     
     @IBOutlet weak var taskDescriptionTextField: UITextField!
     
+    @IBOutlet weak var cancelUIBarButton: UIBarButtonItem!
+    @IBOutlet weak var saveUIBarButton: UIBarButtonItem!
+    
     var taskName = ""
     var taskDescription = ""
     var isDone = false
@@ -29,8 +32,14 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func checkAndDisplayHint(_ sender: UITextField) {
-        if (sender.text!.isEmpty) { taskNameLabel.isHidden = true }
-        else { taskNameLabel.isHidden = false }
+        if (sender.text!.isEmpty) {
+            taskNameLabel.isHidden = true
+            saveUIBarButton.isEnabled = false
+        }
+        else {
+            taskNameLabel.isHidden = false
+            saveUIBarButton.isEnabled = true
+        }
     }
     
     @IBAction func saveTask(_ sender: UIBarButtonItem) {

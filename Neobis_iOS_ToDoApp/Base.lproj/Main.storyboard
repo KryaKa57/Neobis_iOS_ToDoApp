@@ -196,7 +196,7 @@
                                 <action selector="cancelTask:" destination="3t5-qC-5ic" id="UXP-Xe-e0V"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="411-Wj-XcQ">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Сохранить" id="411-Wj-XcQ">
                             <color key="tintColor" systemColor="systemBlueColor"/>
                             <connections>
                                 <action selector="saveTask:" destination="3t5-qC-5ic" id="zar-5Y-fgc"/>
@@ -204,6 +204,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelUIBarButton" destination="bOg-iI-snW" id="0v3-Ki-tcw"/>
+                        <outlet property="saveUIBarButton" destination="411-Wj-XcQ" id="aCv-qg-dh8"/>
                         <outlet property="taskDescriptionTextField" destination="hS7-e3-fq9" id="Pjm-KT-r7z"/>
                         <outlet property="taskNameLabel" destination="wGx-p0-Rgs" id="oNL-Fl-BPw"/>
                         <outlet property="taskNameTextField" destination="tlL-a6-SPg" id="uo9-Vy-PMG"/>
