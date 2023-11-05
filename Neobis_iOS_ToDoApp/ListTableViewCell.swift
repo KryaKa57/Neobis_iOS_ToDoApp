@@ -15,15 +15,19 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var checkMarkButton: UIButton!
     
+    var isDone: Bool = false
+    
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
     
     @IBAction func checkedMarkOfButton(_ sender: UIButton) {
-        if sender.imageView?.image == UIImage(systemName: "circle") {
-            sender.imageView?.image = UIImage(systemName: "pencil")
+        if isDone {
+            sender.setImage(UIImage(systemName: "circle"), for: .normal)
+            isDone = false
         } else {
-            sender.imageView?.image = UIImage(systemName: "circle")
+            sender.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+            isDone = true
         }
     }
 }

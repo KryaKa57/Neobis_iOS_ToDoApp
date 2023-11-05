@@ -9,8 +9,16 @@ class AddTaskViewController: UIViewController {
     
     @IBOutlet weak var taskDescriptionTextField: UITextField!
     
+    var taskName = ""
+    var taskDescription = ""
+    var isDone = false
+    var isEdit = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        taskNameTextField.text = taskName
+        taskDescriptionTextField.text = taskDescription
+        checkAndDisplayHint(taskNameTextField)
     }
     
     func getTaskName() -> String {
@@ -27,9 +35,15 @@ class AddTaskViewController: UIViewController {
     
     @IBAction func saveTask(_ sender: UIBarButtonItem) {
         if let vc = presentingViewController as? ToDoViewController {
-            dismiss(animated: true, completion: {
-                vc.addNewTask(taskName: self.getTaskName(), taskDescription: self.getTaskDescription())
-            })
+            if (isEdit == false) {
+                dismiss(animated: true, completion: {
+                    vc.addNewTask(taskName: self.getTaskName(), taskDescription: self.getTaskDescription())
+                })
+            } else {
+                dismiss(animated: true, completion: {
+                    vc.editTask(taskName: self.getTaskName(), taskDescription: self.getTaskDescription(), isTaskDone: self.isDone)
+                })
+            }
         }
     }
     
