@@ -25,14 +25,14 @@ class AddTaskViewController: UIViewController {
     }
     
     func getTaskName() -> String {
-        return taskNameTextField.text ?? "Без названия"
+        return taskNameTextField.text ?? ""
     }
     func getTaskDescription() -> String {
-        return taskDescriptionTextField.text ?? "Без названия"
+        return taskDescriptionTextField.text ?? ""
     }
     
     @IBAction func checkAndDisplayHint(_ sender: UITextField) {
-        if (sender.text!.isEmpty) {
+        if ((sender.text?.isEmpty) == true) {
             taskNameLabel.isHidden = true
             saveUIBarButton.isEnabled = false
         }

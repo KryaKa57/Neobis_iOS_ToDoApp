@@ -14,7 +14,7 @@ class ToDoViewController: UIViewController {
     @IBOutlet weak var editTaskButton: UIButton!
     @IBOutlet weak var taskTableView: UITableView!
     
-    var tasks: [Tasks] = []
+    var tasks: [Task] = []
     var tappedIndex = 0
     
     override func viewDidLoad() {
@@ -43,24 +43,23 @@ class ToDoViewController: UIViewController {
         if (segue.identifier == "editTaskSegue"), let slider = sender as? ListTableViewCell, let nav = segue.destination as? UINavigationController {
             let taskName = slider.taskNameLabel.text
             let taskDescription = slider.taskDescriptionLabel.text
-            let vc = nav.topViewController as! AddTaskViewController
+            let vc = nav.topViewController as? AddTaskViewController
                 
-            vc.taskName = taskName ?? "name"
-            vc.taskDescription = taskDescription ?? "description"
-            vc.isDone = slider.isDone
-            vc.isEdit = true
-            print(slider.isDone)
+            vc?.taskName = taskName ?? "name"
+            vc?.taskDescription = taskDescription ?? "description"
+            vc?.isDone = slider.isDone
+            vc?.isEdit = true
         }
     }
     
     func addNewTask(taskName name: String, taskDescription description: String) {
         let newIndexPath = IndexPath(row: self.tasks.count, section: 0)
-        self.tasks.append(Tasks(name: name, descrtiption: description, isDone: false))
+        self.tasks.append(Task(name: name, descrtiption: description, isDone: false))
         self.taskTableView.insertRows(at: [newIndexPath], with: .fade)
     }
     
     func editTask(taskName name: String, taskDescription description: String, isTaskDone isDone: Bool) {
-        self.tasks[self.tappedIndex] = Tasks(name: name, descrtiption: description, isDone: isDone)
+        self.tasks[self.tappedIndex] = Task(name: name, descrtiption: description, isDone: isDone)
         self.taskTableView.reloadData()
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Tasks {
+struct Task {
     var name: String
     var descrtiption: String
     var isDone: Bool
